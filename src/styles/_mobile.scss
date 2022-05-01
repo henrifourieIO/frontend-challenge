@@ -13,9 +13,9 @@
 
         button {
           img {
-            transform: rotate(-90deg);
+            transform: rotate(90deg);
             &.open {
-              transform: rotate(90deg);
+              transform: rotate(-90deg);
             }
           }
         }
@@ -24,11 +24,8 @@
 
     .rightPanelWrapper {
       padding: 2em 1em;
-
-      &.open {
-        background-color: var(--dark);
-        color: var(--gray-dark);
-      }
+      background-color: var(--dark);
+      color: var(--gray-dark);
 
       .contentWrapper,
       .formWrapper {
@@ -37,6 +34,14 @@
       }
 
       .contentWrapper {
+        color: var(--dark);
+        border-radius: 0;
+        transform: translateY(0);
+
+        &.open {
+          transform: translateY(-100%);
+        }
+
         h2 {
           margin-bottom: 1em;
           font-size: 2em;

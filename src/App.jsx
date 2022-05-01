@@ -14,8 +14,11 @@ function App() {
           <LeftPanel setOpen={setOpen} open={open} formRef={formRef} />
         </div>
 
-        <div className={`rightPanelWrapper ${open ? 'open' : ''}`} ref={formRef}>
-          { open ? <Form setOpen={setOpen} /> : <ContentPanel /> }
+        <div className={`rightPanelWrapper`} ref={formRef}>
+          <div>
+            <ContentPanel open={open} />
+          </div>
+          <Form setOpen={setOpen} /> 
         </div>
       </section>
     </main>

@@ -20,12 +20,6 @@ const Form = ({ setOpen }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setName(e.target[0].value);
-        setDate(e.target[1].value);
-        setEmail(e.target[2].value);
-        setMobile(e.target[3].value);
-        setId(e.target[4].value);
-        let error;
 
         email.includes('@') ? setEmailError(false) : setEmailError(true);
         name.length > 3 ? setNameError(false) : setNameError(true);
@@ -40,11 +34,29 @@ const Form = ({ setOpen }) => {
         }
     }
 
+    const handleCancel = () => {
+        //Form value states
+        setGender('male');
+        setDate('');
+        setEmail('');
+        setId('');
+        setMembership('silver');
+        setMobile('');
+        setName('');
+
+        // Form error states
+        setNameError(false);
+        setDateError(false);
+        setEmailError(false);
+        setMobileError(false);
+        setIdError(false);
+    }
+
     return (
         <div className="formWrapper">
             <form onSubmit={(e) => handleSubmit(e)}>
                 {/* NAME FIELD */}
-                <TextInput label="Name" type="text" placeholder="John Doe" name="name" error={nameError} />
+                <TextInput label="Name" type="text" placeholder="John Doe" name="name" error={nameError} value={name} setValue={setName} />
 
                 {/* GENDER FIELD */}
                 <div className="formRadio">
@@ -75,16 +87,16 @@ const Form = ({ setOpen }) => {
                 </div>
 
                 {/* DATE OF BIRTH FIELD */}
-                <TextInput type="date" label="Date of Birth" name="date-of-birth" placeholder="" error={dateError} />
+                <TextInput type="date" label="Date of Birth" name="date-of-birth" placeholder="" error={dateError} value={date} setValue={setDate} />
 
                 {/* EMAIL FIELD */}
-                <TextInput type="email" label="Email" name="email" placeholder="john@doe.co.za" error={emailError} />
+                <TextInput type="email" label="Email" name="email" placeholder="john@doe.co.za" error={emailError} value={email} setValue={setEmail} />
 
                 {/* MOBILE FIELD */}
-                <TextInput type="number" label="Mobile" name="mobile" placeholder="+1234567890" error={mobileError} />
+                <TextInput type="number" label="Mobile" name="mobile" placeholder="+1234567890" error={mobileError} value={mobile} setValue={setMobile} />
 
                 {/* ID FIELD */}
-                <TextInput type="number" label="Customer ID" name="id" placeholder="961205023085" error={idError} />
+                <TextInput type="number" label="Customer ID" name="id" placeholder="961205023085" error={idError} value={id} setValue={setId} />
 
                 {/* MEMBERSHIP FIELD */}
                 <div className="formRadio">
@@ -122,13 +134,12 @@ const Form = ({ setOpen }) => {
                         />
                     </div>
                 </div>
-
-                {/* CLISING BUTTONS */}
-                <div className="formButtons">
-                    <Button color='secondary' onClick={() => setOpen(false)}>Cancel</Button>
-                    <Button color='primary' onClick={() => console.log('save')}>Save</Button>
-                </div>
             </form>
+
+            <div className="formButtons">
+                <Button color='secondary' onClick={() => handleCancel()}>Cancel</Button>
+                <Button color='primary'>Save</Button>
+            </div>
         </div>
     )
 }

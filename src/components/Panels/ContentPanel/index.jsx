@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ContentPanel = () => {
+const ContentPanel = ({open}) => {
 
     return (
-        <div className="contentWrapper">
+        <div className={`contentWrapper ${open ? 'open' : ''}`}>
             <h2>My world today</h2>
             <div>
                 <p>
