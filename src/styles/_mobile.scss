@@ -13,9 +13,9 @@
 
         button {
           img {
-            transform: rotate(90deg);
+            transform: rotate(-90deg);
             &.open {
-              transform: rotate(-90deg);
+              transform: rotate(90deg);
             }
           }
         }
@@ -36,10 +36,11 @@
       .contentWrapper {
         color: var(--dark);
         border-radius: 0;
-        transform: translateY(0);
+        transform: translateY(-100%);
+        padding: 3em 5%;
 
         &.open {
-          transform: translateY(-100%);
+          transform: translateY(0);
         }
 
         h2 {

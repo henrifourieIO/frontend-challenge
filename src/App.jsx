@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import Fade from 'react-reveal/Fade';
 import Form from "./components/Forms/Form";
 import ContentPanel from "./components/Panels/ContentPanel";
 import LeftPanel from "./components/Panels/LeftPanel";
@@ -11,14 +12,16 @@ function App() {
     <main>
       <section className="mainWrapper">
         <div className="leftPanelWrapper">
-          <LeftPanel setOpen={setOpen} open={open} formRef={formRef} />
+          <Fade left>
+            <LeftPanel setOpen={setOpen} open={open} formRef={formRef} />
+          </Fade>
         </div>
 
         <div className={`rightPanelWrapper`} ref={formRef}>
           <div>
             <ContentPanel open={open} />
           </div>
-          <Form setOpen={setOpen} /> 
+          <Form /> 
         </div>
       </section>
     </main>

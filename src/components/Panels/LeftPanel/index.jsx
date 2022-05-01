@@ -14,7 +14,7 @@ const LeftPanel = ({setOpen, open, formRef}) => {
             </div>
             <div>
                 <h1>Front-end Challenge!</h1>
-                <p>This is the design I coded up for you to implress you.</p>
+                <p>This is the design I coded up for you to impress you.</p>
             </div>
             <div>
                 <button onClick={() => handleClick()}>
