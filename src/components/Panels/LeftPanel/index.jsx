@@ -10,7 +10,7 @@ const LeftPanel = ({setOpen, open, formRef}) => {
     return (
         <div className="contentWrapper">
             <div className="faceImageWrapper">
-                <img src="/images/face.svg" alt="#" />
+                <img src="/images/face.svg" alt="Face of female" />
             </div>
             <div>
                 <h1>Front-end Challenge!</h1>
@@ -18,7 +18,7 @@ const LeftPanel = ({setOpen, open, formRef}) => {
             </div>
             <div>
                 <button onClick={() => handleClick()}>
-                    <img src="/images/arrow.svg" alt="#" className={open ? 'open': ''} />
+                    <img src="/images/arrow.svg" alt="arrow" className={open ? 'open': ''} />
                 </button>
             </div>
         </div>
